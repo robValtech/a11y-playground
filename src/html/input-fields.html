@@ -1,0 +1,77 @@
+{% set title = "Inputs and labels" %}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col grid-col--one-half">
+        <div class="form-example">
+          <h2>Personal details</h2>
+          <form>
+            <div class="form-group">
+              <input type="text" name="first-name" id="first-name">
+              <label for="first-name">First name</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="last-name" id="last-name">
+              <label for="last-name">Last name</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="phone-number" id="phone-number">
+              <label for="phone-number">Phone number</label>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="occupation" id="occupation">
+              <label for="occupation">Occupation</label>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="grid-col grid-col--one-half">
+        <div class="form-example">
+          <h2>Personal details *</h2>
+          <form>
+            <div class="form-group">
+              <input type="text" name="first-name-unlabelled" id="first-name-unlabelled">
+              <span>First name</span>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="last-name-unlabelled" id="last-name-unlabelled">
+              <span>Last name</span>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="phone-number-unlabelled" id="phone-number-unlabelled">
+              <span>Phone number</span>
+            </div>
+
+            <div class="form-group">
+              <input type="text" name="occupation-unlabelled" id="occupation-unlabelled">
+              <span>Occupation</span>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <p>* Screen reader cannot "see" the label</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}

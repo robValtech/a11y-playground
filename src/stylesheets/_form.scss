@@ -1,0 +1,33 @@
+.form-example {
+  width: auto;
+  padding: 32px;
+  margin: 0;
+
+
+  &:not(:first-child) {
+    margin-top: 32px;
+  }
+}
+
+.form-group {
+  &:not(:first-child) {
+    margin-top: 15px;
+  }
+}
+
+input[type="text"] {
+  border: 2px solid black;
+  outline: 2px solid transparent;
+  outline-offset: 0;
+  line-height: 1.25;
+  padding: 8px;
+  min-width: 200px;
+  margin-right: 5px;
+  font-size: inherit;
+  line-height: inherit;
+
+  &:focus {
+    border: 2px solid black;
+    outline: 3px solid #FFE100;
+  }
+}

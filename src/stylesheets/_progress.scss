@@ -1,0 +1,39 @@
+$background-colour: #EF3E36;
+$border-colour: #efefef;
+
+.progress-indicator {
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 34px;
+  width: 300px;
+  
+  &,
+  &__inner,
+  &__bar {
+    position: relative;
+    box-sizing: border-box;
+  }
+  
+  &__inner {
+    width: 100%;
+    height: 100%;
+  }
+  
+  &__bar {
+    width: 100%;
+    outline: 2px solid $border-colour;
+    outline-offset: 4px;
+    -webkit-appearance: none;
+    appearance: none;
+    
+    &::-webkit-progress-bar {
+      background: lighten($background-colour, 40%);
+    }
+    
+    &::-webkit-progress-value {
+       transition: width 0.6s ease-in-out;
+       background: darken($background-colour, 10%);
+    }
+  }
+}

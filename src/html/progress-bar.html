@@ -1,0 +1,63 @@
+{% set title = "Progress bar with live announcements" %}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <div id="screen-reader-announcer" aria-live="polite" aria-atomic="true" class="visually-hidden"></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="layout-container">
+    <div class="progress-indicator">
+      <span id="progress-indicator-title" class="visually-hidden">Upload progress indicator</span>
+      <div class="progress-indicator__inner">
+        <progress aria-labelledby="progress-indicator-title" aria-describedby="progress-indicator-value" class="progress-indicator__bar" max="100" value="0">
+          <span id="progress-indicator-value"></span>
+        </progress>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+    const $screenReaderAnnouncer = document.querySelector('#screen-reader-announcer');
+    
+    const $progressIndicatorBar = document.querySelector('.progress-indicator__bar');
+    const $progressIndicatorValue = document.querySelector('#progress-indicator-value');
+    let currentValue = 0;
+
+    setProgress(0);
+
+    function setProgress(percentage) {
+      $progressIndicatorBar.setAttribute('value', percentage);
+      $progressIndicatorValue.innerText = percentage + '%';
+
+      makeScreenReaderAnnouncement(`${percentage}%`);
+    }
+
+    function makeScreenReaderAnnouncement(message) {
+      $screenReaderAnnouncer.innerText = message;
+    }
+
+    var interval = setInterval(() => {
+      if (currentValue < 100) {
+        currentValue += 10;
+        setProgress(currentValue);
+      } else {
+        clearInterval(interval);
+
+        makeScreenReaderAnnouncement(`Progress is complete`);
+      }
+    }, 1000);
+  </script>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% set title = "Images and screen readers" %}
+
+{% extends 'layouts/application.html' %}
+
+{% block content %}
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <h1>{{ title }}</h1>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid-container">
+    <div class="grid-row">
+      <div class="grid-col grid-col--one-half">
+        <div class="form-example">
+          <h2>Image</h2>
+          <figure>
+            <img src="http://cliqist.com/wp-content/uploads/2017/06/flag-of-japan-2.jpg.png" width="300" alt="Flag of Japan; red dot on white background." /> 
+          </figure>
+          
+        </div>
+      </div>
+
+      <div class="grid-col grid-col--one-half">
+        <div class="form-example">
+          <h2>Image *</h2>
+          <img src="http://cliqist.com/wp-content/uploads/2017/06/flag-of-japan-2.jpg.png" width="300" alt="" />
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-row">
+      <div class="grid-col grid-col--two-thirds">
+        <p>* Screen reader cannot describe the user what's in the image</p>
+      </div>
+    </div>
+  </div>
+{% endblock %}
